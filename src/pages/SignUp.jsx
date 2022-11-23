@@ -5,16 +5,19 @@ import { UserAuth } from "../context/AuthContext";
 export default function SignUp() {
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
-   const { user, signUp } = UserAuth();
+   const { signUp } = UserAuth();
+   const [error, setError] = useState(false);
    const navigate = useNavigate();
 
    const handleSubmit = async (e) => {
       e.preventDefault();
+      setError(false);
       try {
-         await signUp(email, password);
-         navigate("/");
+         password.length >= 6 ? await signUp(email, password) : setError(true);
+         password.length >= 6 ? navigate("/") : setError(true);
       } catch (error) {
          console.log(error);
+         setError(true);
       }
    };
 
@@ -30,6 +33,11 @@ export default function SignUp() {
                <div className="max-w-[450px] h-[600px] mx-auto bg-black/75 text-white">
                   <div className="max-w-[320px] mx-auto py-16">
                      <h1 className="text-3xl font-bold">Sign Up</h1>
+                     {error ? (
+                        <p className="text-red-500 mt-2">
+                           Password must be longer than 6 characters
+                        </p>
+                     ) : null}
                      <form
                         className="flex flex-col py-4 w-full"
                         onSubmit={handleSubmit}

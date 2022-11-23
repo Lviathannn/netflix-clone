@@ -20,7 +20,7 @@ export default function SavedShows() {
 
    const deleteShow = async (id) => {
       try {
-         const result = movies.filter((item) => item.id != id);
+         const result = movies.filter((item) => item.id !== id);
          await updateDoc(movieRef, {
             savedShows: result,
          });

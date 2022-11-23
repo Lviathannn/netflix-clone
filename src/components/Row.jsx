@@ -34,7 +34,7 @@ export default function Row({ title, fetchURL, rowID }) {
                id={"slider" + rowID}
                className="w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative"
             >
-               {movies.map((movie, index) => {
+               {movies?.map((movie, index) => {
                   return <Movie movie={movie} key={index} />;
                })}
             </div>
