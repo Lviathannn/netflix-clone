@@ -25,7 +25,7 @@ export default function Row({ title, fetchURL, rowID }) {
          <div className="relative flex items-center group">
             <MdChevronLeft
                size={40}
-               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 group-hover:block hidden left-2"
+               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 sm:group-hover:block hidden left-2"
                onClick={() => {
                   handleClick("right");
                }}
@@ -43,7 +43,7 @@ export default function Row({ title, fetchURL, rowID }) {
                   handleClick("left");
                }}
                size={40}
-               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 group-hover:block hidden right-2"
+               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 sm:group-hover:block hidden right-2"
             />
          </div>
       </>
